@@ -1,0 +1,25 @@
+# Smithery configuration file: https://smithery.ai/docs/config#smitheryyaml
+
+startCommand:
+  type: stdio
+  configSchema:
+    # JSON Schema defining the configuration options for the MCP.
+    type: object
+    required:
+      - rapidApiKey
+    properties:
+      rapidApiKey:
+        type: string
+        description: Your RapidAPI key to access Twitter API
+  commandFunction:
+    # A JS function that produces the CLI command based on the given config to start the MCP on stdio.
+    |-
+    (config) => ({
+      command: 'python',
+      args: ['main.py'],
+      env: {
+        RAPID_API_KEY: config.rapidApiKey
+      }
+    })
+  exampleConfig:
+    rapidApiKey: YOUR_RAPID_API_KEY
