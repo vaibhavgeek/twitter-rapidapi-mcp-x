@@ -1,0 +1,10 @@
+[project]
+name = "mcp-x"
+version = "0.1.0"
+description = "This is MCP to fetch Tweets using RAPID API Client"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "httpx>=0.28.1",
+    "mcp[cli]>=1.4.1",
+]
